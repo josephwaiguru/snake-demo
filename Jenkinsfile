@@ -25,16 +25,16 @@ pipeline {
     }
     stage('Post-to-dockerhub') {
       steps {
-     # docker.withRegistry('https://registry.hub.docker.com', 'training_creds') {
-       #     app.push("latest")
-        #			}
+        /*docker.withRegistry('https://registry.hub.docker.com', 'training_creds') {
+            app.push("latest")
+        }*/
        sh 'echo post to dockerhub repo'
       }
     }
     stage('SECURITY-IMAGE-SCANNER'){
        steps {
 	 sh 'echo scan image for security'
-         # build 'SECURITY-IMAGE-SCANNER-AQUAMICROSCANNER'
+         /*build 'SECURITY-IMAGE-SCANNER-AQUAMICROSCANNER'*/
        }
     }
   
@@ -42,15 +42,15 @@ pipeline {
     stage('Pull-image-server') {
       steps {
          sh 'echo pulling image ...'
-         #sh "docker-compose down"
-         #sh "docker-compose up -d"	
+         /*sh "docker-compose down"
+         sh "docker-compose up -d"*/
       }
     }
     
     stage('DAST') {
        steps {
          sh 'echo dast scan for security'
-         build 'SECURITY-DAST-OWASP_ZAP'
+         /*build 'SECURITY-DAST-OWASP_ZAP'*/
         }
     }
  }
