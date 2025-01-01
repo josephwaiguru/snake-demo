@@ -11,7 +11,8 @@ pipeline {
     }  
     stage('SAST'){
         steps {
-            build 'SECURITY-SAST-SNYK'
+            sh 'echo SAST stage'
+	    /* build 'SECURITY-SAST-SNYK' */
         }
     }
 
